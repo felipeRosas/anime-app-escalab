@@ -15,12 +15,8 @@ const AnimeCard = ({ images, title, trailer, studios, rating,episodes,synopsis }
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
-          <ListGroup variant="flush">
-            <ListGroup.Item>
                 <strong className="mr-2">Trailer</strong>
-                <a href={trailer.url} target='_blank' rel="noopener noreferrer"><BsYoutube size='2em'/></a>
-            </ListGroup.Item>
-          </ListGroup>
+                <a className="m-2" href={trailer.url} target='_blank' rel="noopener noreferrer"><BsYoutube size='2em'/></a>
         </Card.Text>
         <Button variant="info" onClick={()=>handleOpenModal({data,show:true})}>Ver detalle</Button>
       </Card.Body>
