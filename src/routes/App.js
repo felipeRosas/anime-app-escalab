@@ -6,7 +6,6 @@ import Layout from "../components/Layout";
 import { errorBoundary } from "../helpers/errorBoundary";
 
 const Home = lazy(() => import("../containers/Home"));
-const Search = lazy(() => import("../containers/Search"));
 const NotFound = lazy(() => import("../containers/NotFound"));
 
 const App = () => (
@@ -14,7 +13,6 @@ const App = () => (
     <Suspense fallback={<Loader />}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/search" component={Search} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
