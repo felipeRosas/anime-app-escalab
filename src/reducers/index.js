@@ -12,7 +12,7 @@
         ...state,
         animeListByYear: action.payload,
       };
-    case "GET_ANIME_DETAIL":
+    case "SET_ANIME_DETAIL":
       return {
         ...state,
         animeDetail: action.payload,

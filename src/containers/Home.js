@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { getActualSeasonAnimeList } from "../actions";
 import AnimeCard from "../components/AnimeCard";
 import Loader from "../components/Loader";
 import useGetActualSeason from "../hooks/useGetActualSeason";
 import { Row,Col } from "react-bootstrap";
 import Error from "../components/Error";
 import img from '../assets/static/img/error.png'
+import AnimeDetail from "../components/AnimeDetail";
+import useModal from "../hooks/useModal";
+
 const Home = (props) => {
-    console.log('props',props)
     const {actualSeasonList} = props
+
+    const { modal, handleCloseModal } = useModal();
   const {  loading, error, getActualSeasonAnimeLis } =
     useGetActualSeason();
 
@@ -19,6 +22,7 @@ const Home = (props) => {
 
   return (
     <Row xs={1} md={4} className="g-4">
+      <AnimeDetail show={modal} handleCloseModal={handleCloseModal}/> 
       {loading ? (
         <Loader />
       ) : error ?(<Error img={img} title={'Ocurrio un error al cargar la Información'}/>)
@@ -41,7 +45,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  getActualSeasonAnimeList,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

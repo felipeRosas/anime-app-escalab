@@ -1,20 +1,6 @@
 import axios from "axios"
 import { actualSeason } from "../const"
 
-export const getActualSeasonAnimeList = () => {
-    return dispatch => {
-        dispatch(loadGetActualSeasonAnimeList({}))
-        return axios.get( actualSeason )
-            .then(res => {
-                console.log('res',{res})
-            })
-            .then(error => {
-                console.log({error})
-                dispatch(errorGetActualSeasonAnimeList({error:true, error}))
-            })
-    }
-}
-
 
 export const getActualSeason = (payload) => ({
     type: 'GET_ACTUAL_SEASON',
@@ -25,9 +11,9 @@ const loadGetActualSeasonAnimeList = obj => ({
     type: 'REQUEST_ACTUAL_SEASON_ANIME_LIST',
     payload: obj
 })
-const errorGetActualSeasonAnimeList = obj => ({
-    type: 'ERROR_GET_ACTUAL_SEASON_ANIME_LIST',
-    payload: obj
+export const setAnimeDetail = payload => ({
+    type: 'SET_ANIME_DETAIL',
+    payload
 })
 
 export const getAnimeListByYear = (payload) => ({

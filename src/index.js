@@ -1,18 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./routes/App";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { BrowserRouter } from "react-router-dom";
 // import configureStore from './store/configureStore';
 import rootReducer from "./reducers";
+// import "core-js/stable";
+// import "regenerator-runtime/runtime"
+import App from "./routes/App";
 
 
 const initialState = {
   actualSeason: [],
   searchResult: null,
-  detailAnimeInfo: null,
+  animeDetail: null,
 };
 
 const store = createStore(rootReducer, initialState);
