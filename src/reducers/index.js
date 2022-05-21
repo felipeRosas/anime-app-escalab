@@ -13,9 +13,11 @@
         animeListByYear: action.payload,
       };
     case "SET_ANIME_DETAIL":
+      console.log('action ', action)
       return {
         ...state,
-        animeDetail: action.payload,
+        animeDetail: action.payload.data,
+        showModal:action.payload.show
       };
     
     case 'REQUEST_ACTUAL_SEASON_ANIME_LIST':

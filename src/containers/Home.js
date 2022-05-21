@@ -22,7 +22,7 @@ const Home = (props) => {
 
   return (
     <Row xs={1} md={4} className="g-4">
-      <AnimeDetail show={modal} handleCloseModal={handleCloseModal}/> 
+      <AnimeDetail  handleCloseModal={handleCloseModal}/> 
       {loading ? (
         <Loader />
       ) : error ?(<Error img={img} title={'Ocurrio un error al cargar la Información'}/>)

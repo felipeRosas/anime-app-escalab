@@ -6,15 +6,16 @@ const useModal = () => {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch()
 
-  const handleCloseModal = () => {
-    dispatch(setAnimeDetail(null))
+  const handleCloseModal = (info) => {
+    console.log('close')
     setModal(false);
+    dispatch(setAnimeDetail(info))
   };
 
-  const handleOpenModal = (data) => {
+  const handleOpenModal = (info) => {
     console.log('open')
-    dispatch(setAnimeDetail(data))
     setModal(true);
+    dispatch(setAnimeDetail(info))
   };
 
   return { modal, handleCloseModal, handleOpenModal };

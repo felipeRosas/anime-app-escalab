@@ -2,10 +2,11 @@ import React from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
 import {BsYoutube} from 'react-icons/bs'
 import useModal from "../hooks/useModal";
-import AnimeDetail from "./AnimeDetail";
+import PropTypes from 'prop-types';
+import { propTypes } from "react-bootstrap/esm/Image";
 
 const AnimeCard = ({ images, title, trailer, studios, rating,episodes,synopsis }) => {
-
+  const data = {images, title, trailer, studios, rating,episodes,synopsis}
     const { handleOpenModal } = useModal();
 
   return (
@@ -21,11 +22,22 @@ const AnimeCard = ({ images, title, trailer, studios, rating,episodes,synopsis }
             </ListGroup.Item>
           </ListGroup>
         </Card.Text>
-        <Button variant="info" onClick={()=>handleOpenModal({images, title, trailer, studios, rating,episodes,synopsis})}>Ver detalle</Button>
+        <Button variant="info" onClick={()=>handleOpenModal({data,show:true})}>Ver detalle</Button>
       </Card.Body>
           
     </Card>
   );
 };
 
+AnimeCard.propTypes = {
+  images: PropTypes.object,
+  title: PropTypes.string,
+  trailer:PropTypes.object,
+  studios:PropTypes.array,
+  rating: PropTypes.string,
+  episodes:PropTypes.number,
+  synopsis:PropTypes.string,
+}
+
 export default AnimeCard;
+AnimeCard.displayName = "Anime Card";

@@ -14,7 +14,8 @@ import App from "./routes/App";
 const initialState = {
   actualSeason: [],
   searchResult: null,
-  animeDetail: null,
+  animeDetail: {images:{}, title:'', trailer:'',studios:[], rating:'',episodes:0, synopsis:''},
+  showModal:false,
 };
 
 const store = createStore(rootReducer, initialState);
